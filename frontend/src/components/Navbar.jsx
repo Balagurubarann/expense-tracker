@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
 
@@ -8,24 +9,24 @@ function Navbar() {
                         <span>MONEY</span><p>MANAGER</p>
                     </div>
                     <div className="action-container">
-                        <button className="action-btn">
-                            <i className="fas fa-exchange"></i>
-                        </button>
-                        <button className="action-btn">
-                            <i className="fas fa-exchange"></i>
-                        </button>
-                        <button className="action-btn">
-                            <i className="fas fa-exchange"></i>
-                        </button>
-                        <button className="action-btn">
-                            <i className="fas fa-exchange"></i>
-                        </button>
-                        <button className="action-btn">
-                            <i className="fas fa-exchange"></i>
-                        </button>
-                        <button className="action-btn">
-                            <i className="fas fa-exchange"></i>
-                        </button>
+                        <Link className="action-btn" to="/home/">
+                            Transactions
+                        </Link>
+                        <Link className="action-btn" to="/home/stats/">
+                            Stats
+                        </Link>
+                        <Link className="action-btn" to="/home/add-expense/">
+                            Add
+                        </Link>
+                        <Link className="action-btn" to="/home/bills/">
+                            Billings
+                        </Link>
+                        <Link className="action-btn" to="/home/budget/">
+                            Budget
+                        </Link>
+                        <Link className="action-btn" to="/settings/">
+                            Settings
+                        </Link>
                     </div>
                 </div>
             </>

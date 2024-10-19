@@ -109,8 +109,8 @@ body {
   margin-bottom: 2rem;
 }
 
-.option-card input {
-  /* display:  */
+.navbar {
+  overflow: hidden;
 }
 
 .navbar .logo {
@@ -122,7 +122,39 @@ body {
 }
 
 .navbar .logo span {
-  color: var(--yellow);
+  color: var(--red);
+}
+
+.navbar .action-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4rem;
+}
+
+.action-container .action-btn {
+  text-align: left;
+  width: 100%;
+  font-size: 18px;
+  color: var(--white);
+  padding: 1rem;
+  margin: .5rem 0;
+  font-weight: 300;
+  letter-spacing: .5px;
+  transition: .4s;
+}
+
+.action-btn.active {
+  color: var(--white);
+  background: var(--red);
+}
+
+.action-container .action-btn:hover {
+  color: var(--white);
+  background: var(--red);
+}
+
+.action-container .action-btn:last-child {
+  align-items: flex-end;
 }
 
 @media screen and (width > 576px) {
