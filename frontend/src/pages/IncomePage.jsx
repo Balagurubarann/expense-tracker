@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import OptionCard from '../components/OptionCard';
+
 
 function IncomePage() {
 
@@ -20,7 +22,9 @@ function IncomePage() {
     }
 
     return  <>
+    
                 <form className="user-form income-form">
+                    <OptionCard />
                     <div className="user-input user-input-row">
                         <label htmlFor="transaction-date">Transaction Date:</label>
                         <input type="datetime-local" className="bg-success border-none" name="transaction-date" id="transaction-date" value={ transactionDate }

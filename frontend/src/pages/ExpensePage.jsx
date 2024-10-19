@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import OptionCard from '../components/OptionCard';
 
 function ExpensePage() {
 
@@ -65,7 +66,9 @@ function ExpensePage() {
     }
 
     return  <>
+
                 <form className="user-form expense-form" onSubmit={ handleForm }>
+                    <OptionCard />
                     <div className="user-input user-input-row">
                         <label htmlFor="transactionTime">Transaction Time:</label>
                         <input type="datetime-local" className="bg-red border-none" name="transactionTime" id="transactionTime" value={ transactionDate }

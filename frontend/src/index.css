@@ -33,6 +33,11 @@ body {
   position: relative;
 }
 
+.main-container {
+  height: 100%;
+  width: 100%;
+}
+
 .bg-red {
   background-color: var(--red);
   color: var(--white);
@@ -102,9 +107,10 @@ body {
 }
 
 .option-card {
-  padding: 12px 24px;
+  /* padding: 12px 24px; */
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 4rem;
   margin-bottom: 2rem;
 }
@@ -157,6 +163,8 @@ body {
   align-items: flex-end;
 }
 
+
+
 @media screen and (width > 576px) {
 
   .navbar {
@@ -164,6 +172,11 @@ body {
     width: 30vmin;
     background: var(--black);
   }
+
+  .content {
+    width: calc(100% - 30vmin);
+  }
+  
 
 }
 
@@ -175,6 +188,10 @@ body {
     background: var(--black);
     position: absolute;
     bottom: 0%;
+  }
+
+  .navbar .logo {
+    display: none;
   }
 
 }
