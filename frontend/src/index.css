@@ -1,0 +1,148 @@
+:root {
+  --black: #1b1b1b;
+  --white: #f1f1f1;
+  --success: #047aed;
+  --red: crimson;
+  --yellow: #ff9900;
+}
+
+* {
+  padding: 0; margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--black);
+}
+
+button {
+  padding: 12px 24px;
+  background: transparent;
+  outline: none;
+  appearance: none;
+  border: none;
+  /* border: 1px solid var(--black); */
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+body {
+  height: 100vh;
+  margin: 0; padding: 0; 
+  position: relative;
+}
+
+.bg-red {
+  background-color: var(--red);
+  color: var(--white);
+}
+
+.bg-success {
+  background-color: var(--success);
+  color: var(--white);
+}
+
+.border-none {
+  border: none !important;
+}
+
+.user-form {
+  width: 80vmin;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.user-input {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.user-input input, .user-input select {
+  padding: 12px 24px;
+  outline: none;
+  border:  1px solid;
+  border-radius: 4px;
+  text-transform: capitalize;
+}
+
+.user-input-row {
+  flex-direction: row;
+  align-items: center;
+}
+
+.btn-section {
+  display: flex;
+  justify-content: space-around;
+  padding: 24px;
+}
+
+.btn-section .save {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.btn-section .cancel {
+  background: var(--red);
+  color: var(--white);
+}
+
+.btn {
+  padding: 12px 24px;
+  outline: none;
+  appearance: none;
+  /* border: none; */
+  border: 1px solid var(--black);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.option-card {
+  padding: 12px 24px;
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin-bottom: 2rem;
+}
+
+.option-card input {
+  /* display:  */
+}
+
+.navbar .logo {
+  color: var(--white);
+  padding: 1rem;
+  display: flex;
+  gap: .5rem;
+  font-weight: bold;
+}
+
+.navbar .logo span {
+  color: var(--yellow);
+}
+
+@media screen and (width > 576px) {
+
+  .navbar {
+    height: 100vh;
+    width: 30vmin;
+    background: var(--black);
+  }
+
+}
+
+@media screen and (width < 576px) {
+
+  .navbar {
+    height: 10vh;
+    width: 100vmin;
+    background: var(--black);
+    position: absolute;
+    bottom: 0%;
+  }
+
+}
