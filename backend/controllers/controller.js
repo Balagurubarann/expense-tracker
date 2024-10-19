@@ -8,7 +8,7 @@ exports.getTransactions = async (req, res, next) => {
         const income = await Income.find();
         const expense = await Expense.find();
         
-        return res.status(200).json({income, expense});
+        return res.status(200).json(income);
 
     } catch (err) {
         next(err);

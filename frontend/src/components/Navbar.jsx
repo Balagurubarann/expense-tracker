@@ -9,7 +9,7 @@ function Navbar() {
                         <span>MONEY</span><p>MANAGER</p>
                     </div>
                     <div className="action-container">
-                        <Link className="action-btn" to="/home/">
+                        <Link className="action-btn" to="/home/transactions">
                             Transactions
                         </Link>
                         <Link className="action-btn" to="/home/stats/">
