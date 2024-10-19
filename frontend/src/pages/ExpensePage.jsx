@@ -17,10 +17,10 @@ function ExpensePage() {
     const [transactionDate, setTransactionDate] = useState(getCurrentDate());
     const [userInput, setUserInput] = useState({
         amount: 0,
-        category: '',
+        category: 'food',
         paidTo: '',
         description: '',
-        account: ''
+        account: 'cash'
     })
 
     function handleOnChange(e) {
@@ -83,8 +83,7 @@ function ExpensePage() {
                     <div className="user-input">
                         <label htmlFor="category">Category:</label>
                         {/* <input type="text" name="category" id="category" required /> */}
-                        <select required name="category" id="category" onChange={ handleUserInput } value={userInput.category} placeholder="Category">
-                            <option value=""></option>
+                        <select required name="category" id="category" onChange={ handleUserInput } value={userInput.category}>
                             <option value="food">Food</option>
                             <option value="fuel">Fuel</option>
                             <option value="recharge">Recharge</option>
@@ -96,7 +95,6 @@ function ExpensePage() {
                         {/* <input type="text" name="category" id="category" required /> */}
                         <select required name="account" id="account" onChange={ handleUserInput }
                         value={userInput.account} >
-                            <option value=""></option>
                             <option value="cash">cash</option>
                             <option value="bankaccount">Bank Account</option>
                             <option value="pettycash">Petty Cash</option>
