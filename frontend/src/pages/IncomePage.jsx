@@ -38,6 +38,7 @@ function IncomePage() {
                         <label htmlFor="category">Category:</label>
                         {/* <input type="text" name="category" id="category" required /> */}
                         <select required name="category" id="category">
+                            <option value=""></option>
                             <option value="cash">cash</option>
                             <option value="bankaccount">Bank Account</option>
                             <option value="pettycash">Petty Cash</option>
