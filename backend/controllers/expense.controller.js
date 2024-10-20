@@ -34,7 +34,7 @@ exports.get_expense = async (req, res, next) => {
             return res.status(404).json({ message: "No expense Found!", success: false });
         }
 
-        return res.status(200).json({ message: "Expense Found!", success: false, expense });
+        return res.status(200).json({ message: "Expense Found!", success: true, expense });
 
     } catch (err) {
         next(err);
