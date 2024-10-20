@@ -3,6 +3,14 @@ import OptionCard from '../components/OptionCard';
 
 
 function IncomePage() {
+    
+    const [transactionDate, setTransactionDate] = useState(getCurrentDate());
+    const [userData, setUserData] = useState({
+        amount: '',
+        category: 'cash',
+        paidBy: '',
+        description: ''
+    });
 
     function getCurrentDate() {
         const currentDate = new Date();
@@ -15,15 +23,51 @@ function IncomePage() {
         return `${year}-${month}-${day}T${hours}:${minutes}`;
     }
 
-    const [transactionDate, setTransactionDate] = useState(getCurrentDate());
-
     function handleOnChange(e) {
         return setTransactionDate(e.target.value);
     }
 
+    function handleUserInput(e) {
+        const { name, value } = e.target;
+
+        setUserData((prevData) => ({
+            ...prevData,
+            [name]: value
+        }))
+
+    }
+
+    async function handleForm(e) {
+        e.preventDefault();
+
+        const { amount, category, paidBy, description } = userData;
+
+        console.log(userData);
+
+        await fetch('http://127.0.0.1:1337/home/add-income/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                amount,
+                category,
+                paidBy, 
+                description
+            }),
+        }) 
+        .then(() => {
+            console.log('Income posted successfully!')
+        })
+        .catch(err => {
+            console.log('Error happened: ', err);
+        })
+
+    }
+
     return  <>
     
-                <form className="user-form income-form">
+                <form className="user-form income-form" onSubmit={ handleForm }>
                     <OptionCard />
                     <div className="user-input user-input-row">
                         <label htmlFor="transaction-date">Transaction Date:</label>
@@ -32,13 +76,14 @@ function IncomePage() {
                     </div>
                     <div className="user-input">
                         <label htmlFor="amount">Income Amount:</label>
-                        <input type="number" name="amount" id="amount" required />
+                        <input type="number" name="amount" id="amount" required
+                        onChange={ handleUserInput }
+                        />
                     </div>
                     <div className="user-input">
                         <label htmlFor="category">Category:</label>
                         {/* <input type="text" name="category" id="category" required /> */}
-                        <select required name="category" id="category">
-                            <option value=""></option>
+                        <select required name="category" id="category" onChange={ handleUserInput }>
                             <option value="cash">cash</option>
                             <option value="bankaccount">Bank Account</option>
                             <option value="pettycash">Petty Cash</option>
@@ -47,11 +92,15 @@ function IncomePage() {
                     </div>
                     <div className="user-input">
                         <label htmlFor="paidBy">Paid By:</label>
-                        <input type="text" name="paidBy" id="paidBy" required />
+                        <input type="text" name="paidBy" id="paidBy" required 
+                        onChange={ handleUserInput }
+                        />
                     </div>
                     <div className="user-input">
                         <label htmlFor="description">Description:</label>
-                        <input type="text" name="description" id="description" />
+                        <input type="text" name="description" id="description" 
+                        onChange={ handleUserInput }
+                        />
                     </div>
 
                     <div className="btn-section">

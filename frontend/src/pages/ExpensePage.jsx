@@ -57,7 +57,7 @@ function ExpensePage() {
             }),
         }) 
         .then(() => {
-            console.log('Posted successfully!')
+            console.log('Expense posted successfully!')
         })
         .catch(err => {
             console.log('Error happened: ', err);
