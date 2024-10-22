@@ -1,40 +1,28 @@
 import { useState, useEffect } from "react";
+import "./styles/transaction.css";
 
 function Transactions() {
 
     const [userExpense, setUserExpense] = useState([]);
     const [userIncome, setUserIncome] = useState([]);
 
-    async function fetchExpense() {
+    async function fetchTransaction() {
 
         try {
 
-        const response = await fetch('http://127.0.0.1:1337/home/expenses/');
-        const result = await response.json();
+        const expenseResponse = await fetch('http://127.0.0.1:1337/home/expenses/');
+        const expenseResult = await expenseResponse.json();
 
-        const { expense } = result;
+        const incomeResponse = await fetch('http://127.0.0.1:1337/home/incomes/');
+        const incomeResult = await incomeResponse.json();
+
+        const { expense } = expenseResult;
+        const { incomes } = incomeResult;
 
         setUserExpense(expense);
-
-        console.log(expense);
-
-        } catch (err) {
-            throw err;
-        }
-
-    }
-
-    async function fetchIncome() {
-
-        try {
-
-        const response = await fetch('http://127.0.0.1:1337/home/incomes/');
-        const result = await response.json();
-
-        const { incomes } = result;
-
         setUserIncome(incomes);
 
+        console.log(expense);
         console.log(incomes);
 
         } catch (err) {
@@ -45,8 +33,7 @@ function Transactions() {
 
     useEffect(() => {
 
-        fetchExpense();
-        fetchIncome();
+        fetchTransaction();
 
     }, [])
 
