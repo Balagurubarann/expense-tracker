@@ -10,20 +10,20 @@ function Transactions() {
 
         try {
 
-        const expenseResponse = await fetch('http://127.0.0.1:1337/home/expenses/');
-        const expenseResult = await expenseResponse.json();
+            const expenseResponse = await fetch('http://127.0.0.1:1337/home/expenses/');
+            const expenseResult = await expenseResponse.json();
 
-        const incomeResponse = await fetch('http://127.0.0.1:1337/home/incomes/');
-        const incomeResult = await incomeResponse.json();
+            const incomeResponse = await fetch('http://127.0.0.1:1337/home/incomes/');
+            const incomeResult = await incomeResponse.json();
 
-        const { expense } = expenseResult;
-        const { incomes } = incomeResult;
+            const { expense } = expenseResult;
+            const { incomes } = incomeResult;
 
-        setUserExpense(expense);
-        setUserIncome(incomes);
+            setUserExpense(expense);
+            setUserIncome(incomes);
 
-        console.log(expense);
-        console.log(incomes);
+            console.log(expense);
+            console.log(incomes);
 
         } catch (err) {
             throw err;
@@ -38,16 +38,13 @@ function Transactions() {
     }, [])
 
     return  <>
-                <p>
-                    User Transactions
-
-                    {
-                        userExpense.map((exp, index) => (
-                            <li key={index}>{exp.amount}</li>
-                        ))
-                    }
-
-                </p>
+                <div className="transaction-container">
+                    <div className="expense-container">
+                        {   
+                            userExpense.reduce((exp, total) => exp.amount + total)
+                        }
+                    </div>
+                </div>
             </>
 
 }
